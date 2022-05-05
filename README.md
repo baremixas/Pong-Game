@@ -20,9 +20,9 @@ For the moment, in order to play a game with AI, you need to make changes in cod
 
 I plan to add things such as:
 - main menu to choose from options:
-      - teach AI
-      - play vs AI
-      - play vs another player
+	- teach AI
+	- play vs AI
+	- play vs another player
 - more diversity to the game like pick-up bonuses or increasing speed of the ball
 - choosing from AI difficulty
 
