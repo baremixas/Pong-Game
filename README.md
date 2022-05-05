@@ -16,6 +16,13 @@ For the moment, in order to play a game with AI, you need to make changes in cod
 - uncomment the "play_ai" function,
 - comment "run_neat" function.
 
+The training consist of genome playing a game versus each other genome in the generation.
+For now the game lasts 10 points (or more). After each game we update each genome's fitness by adding difference in scores of genomes.
+Example:
+Game finishes with the score 7:3. Fitness of genome1 is extended by 4 (7 - 3 = 4), while fitness of genome2 is lowered by 4 (3 - 7 = -4).
+
+For informations about NEAT algorithm visit: http://nn.cs.utexas.edu/downloads/papers/stanley.cec02.pdf
+
 ## Future
 
 I plan to add things such as:
