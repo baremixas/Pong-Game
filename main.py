@@ -1,5 +1,5 @@
 import pygame
-from pong_sim import Game
+from game import Game
 import os
 import neat
 import pickle
@@ -123,8 +123,8 @@ def eval_genomes(genomes, config):
 # running neat through declared amount of generations
 def run_neat(config):
     # setting population for algorithm
-    # population = neat.Population(config)
-    population = neat.Checkpointer.restore_checkpoint('neat-checkpoint-44')
+    population = neat.Population(config)
+    # population = neat.Checkpointer.restore_checkpoint('neat-checkpoint-44')
     population.add_reporter(neat.StdOutReporter(True))
     stats = neat.StatisticsReporter()
     population.add_reporter(stats)
