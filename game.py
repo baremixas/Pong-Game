@@ -143,9 +143,8 @@ class Game:
                 if play_ai:
                     # AI controls second paddle
                     output = network.activate((self.opponent.rect.y, self.ball.rect.y,
-                                               abs(self.opponent.rect.x - self.ball.rect.x), self.opponent.rect.y))
+                                               abs(self.opponent.rect.x - self.ball.rect.x)))
                     decision = output.index(max(output))
-
                     if decision == 0:
                         pass
                     elif decision == 1:

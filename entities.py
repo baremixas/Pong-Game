@@ -5,18 +5,18 @@ pygame.init()
 
 
 class Player():
-    def __init__(self, wall_offset, y_pos, speed, left, screen_res, screen, length, thickness):
-        self.initialize(wall_offset, y_pos, speed, left, screen_res, screen, length, thickness)
+    def __init__(self, wall_offset, speed, left, screen_res, screen, length, thickness):
+        self.initialize(wall_offset, speed, left, screen_res, screen, length, thickness)
 
-    def initialize(self, wall_offset, y_pos, speed, left, screen_res, screen, length, thickness):
+    def initialize(self, wall_offset, speed, left, screen_res, screen, length, thickness):
         '''Used to initialize all parameters of the object'''
 
-        self.y_pos = y_pos
         self.speed = speed
         self.wall_offset = wall_offset
         self.left = left
         self.screen_res = screen_res
         self.screen = screen
+        self.y_pos = screen_res[1]/2
 
         # Size of the paddle
         self.length = length
@@ -53,9 +53,6 @@ class Player():
         else:
             self.rect.topleft = (self.screen_res[0] - self.wall_offset - self.thickness, self.y_pos - self.length / 2)
 
-    def update(self):
-        pygame.draw.rect(self.screen, 'White', self.rect)
-
 
 class Ball():
     def __init__(self, x_speed, y_speed, player, opponent, screen_res, screen, diameter):
@@ -77,7 +74,7 @@ class Ball():
         self.screen = screen
 
         self.diameter = diameter
-        self.rect = pygame.Rect(self.screen_res[0] - self.diameter / 2, self.screen_res[1] - self.diameter / 2,
+        self.rect = pygame.Rect(self.screen_res[0]/2 - self.diameter/2, self.screen_res[1]/2 - self.diameter/2,
                                 self.diameter, self.diameter)
 
     def adjust_y_speed(self, paddle):
@@ -120,7 +117,7 @@ class Ball():
         self.opponent_hits = 0
 
         # Centering the ball
-        self.rect.center = (self.screen_res[0] / 2, self.screen_res[1] / 2)
+        self.rect.center = (self.screen_res[0]/2, self.screen_res[1]/2)
 
         # Randomizing ball direction
         self.x_speed = self.x_speed_start * random.choice([-1, 1])
