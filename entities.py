@@ -9,8 +9,6 @@ class Player():
         self.initialize(wall_offset, speed, left, screen_res, screen, length, thickness)
 
     def initialize(self, wall_offset, speed, left, screen_res, screen, length, thickness):
-        '''Used to initialize all parameters of the object'''
-
         self.speed = speed
         self.wall_offset = wall_offset
         self.left = left
@@ -59,8 +57,6 @@ class Ball():
         self.initialize(x_speed, y_speed, player, opponent, screen_res, screen, diameter)
 
     def initialize(self, x_speed, y_speed, player, opponent, screen_res, screen, diameter):
-        '''Used to initialize all parameters of the ball'''
-
         self.x_speed_start = x_speed
         self.y_speed_start = y_speed
         self.x_speed = self.x_speed_start * random.choice([-1, 1])
@@ -78,11 +74,14 @@ class Ball():
                                 self.diameter, self.diameter)
 
     def adjust_y_speed(self, paddle):
+        '''Function used to adjust speed of the ball on Y axis according to place where it hits paddle.'''
+
         self.y_speed = -1 * (paddle.rect.y + paddle.length/2 -
                              (self.rect.y + self.diameter/2)) / (paddle.length/2/self.y_speed_start)
 
     def player_collision(self):
-        # Checking for side collisionns
+        '''Checking for side collisions of ball and right paddle.'''
+
         if self.rect.y + self.diameter >= self.player.rect.y \
                 and self.rect.y <= self.player.rect.y + self.player.length:
             if self.rect.x + self.diameter >= self.player.rect.x:
@@ -91,7 +90,8 @@ class Ball():
                 self.player_hits += 1
 
     def opponent_collision(self):
-        # Checking for side collisions
+        '''Checking for side collisions of ball and left paddle.'''
+
         if self.rect.y + self.diameter >= self.opponent.rect.y \
                 and self.rect.y <= self.opponent.rect.y + self.opponent.length:
             if self.rect.x <= self.opponent.rect.x + self.opponent.thickness:
@@ -100,6 +100,8 @@ class Ball():
                 self.opponent_hits += 1
 
     def collisions(self):
+        '''Function used for operating all ball colisions.'''
+
         # Bouncing from walls
         if self.y_speed < 0 and self.rect.top <= 0:
             self.y_speed *= -1

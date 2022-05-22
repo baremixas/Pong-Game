@@ -118,6 +118,10 @@ class Game:
         return neat.nn.FeedForwardNetwork.create(best, config)
 
     def play(self, play_ai):
+        '''Function used for playing Pong game. A bool input indicates if the game is versus AI loaded from file
+        or versus second player.
+        '''
+
         if play_ai:
             network = self.load_ai()
 
@@ -161,6 +165,6 @@ class Game:
                 self.game_loop()
 
             self.display_game(score=True, hits=True)
-
             pygame.display.update()
+
         pygame.quit()
