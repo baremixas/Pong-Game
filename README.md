@@ -1,6 +1,6 @@
-# NEAT-Pong
+# Pong Game
  
-The game was created in Python with use of PyGame and NEAT algorithm and was made to learn and practice basic programming skills fully by me.
+The game was created in Python with use of PyGame and NEAT algorithm and was made to learn and practice basic programming skills.
 
 ## Table of contents
 * [General info](#general-info)
@@ -28,7 +28,7 @@ I plan to add things such as:
 
 ## Screens
 <p align="center">
-	<img width="40%" src="./Readme_images/game.jpg">
+	<img width="60%" src="./Readme_images/game.jpg">
 </p>
 
 ## License
