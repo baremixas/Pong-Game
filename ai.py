@@ -62,7 +62,7 @@ class AI:
         The opponent for AI was manually programmed to always keep the ball on it's body length.
         The game lasts to the first point on whatever side.
         '''
-
+        
         run = True
         while run:
             clock.tick() # Set FPS (higher value = faster simulation), empty to no max restriction
